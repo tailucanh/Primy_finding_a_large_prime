@@ -1,10 +1,18 @@
 # Primy: finding a large prime
 
-## Bước 1: Cài đặt Erlang và tạo các file liên quan.
+## 1. Giới thiệu
+   Chúng ta sẽ triển khai một hệ thống phân tán để tìm các số nguyên tố lớn. Hệ thống nên bao gồm một máy chủ đảm nhận việc điều khiển quá trình tính toán, và một tập hợp động các công nhân (a dynamic set of workers) được giao các số để kiểm tra xem chúng có phải là số nguyên tố không.
+## 2. Đề bài gốc
+## Primy: finding a large prime
+
+Your task will be to implement a distributed system that will find large primes. The system should have one server that is in control of the computation and a dynamic set of workers that are assigned numbers to test for primality.
+
+
+### Bước 1: Cài đặt Erlang và tạo các file liên quan.
 1.1, Cài đặt Erlang cho máy tính [tại đây.](https://www.erlang.org/downloads)
 
 1.2, Sau khi cài đặt xong, có thể dùng Visual Studio Code để khởi tạo các file liên quan. Tạo project mới cùng các file là fermat.erl chứa mã code thuật toán Fermat, prime_server.erl để triển khai máy chủ như mã code ở trên.
-## Bước 2: Chạy chương trình để test thuật toán.
+### Bước 2: Chạy chương trình để test thuật toán.
 1.1, Chạy Terminal trong VS CODE và gõ lệnh `erl`.
 
 ![unnamed](https://github.com/tailucanh/Primy_finding_a_large_prime/assets/93418649/77b7d300-1f04-414e-b5cf-541a4a40eb47)
@@ -29,4 +37,4 @@ và chạy tiếp lệnh:
 
 
 --> Kết quả trả về: New highest prime found: 17.
- ## *Chúng ta có thể kiểm tra thêm nhiều số nguyên tố hơn bằng cách lặp lại bước 1.4.*
+ ### *Chúng ta có thể kiểm tra thêm nhiều số nguyên tố hơn bằng cách lặp lại bước 1.4.*
