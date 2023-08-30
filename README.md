@@ -28,12 +28,11 @@ như hình ảnh trên là đã thành công biên dịch mã nguồn.
 ![unnamed (2)](https://github.com/tailucanh/Primy_finding_a_large_prime/assets/93418649/b3933184-e704-442d-9c68-6bfaeb668c17)
 
 1.4, Bây giờ bạn có thể tạo các tiến trình công nhân giả lập. Hãy tạo một số công nhân và yêu cầu cho chúng để thực hiện kiểm tra số nguyên tố bằng câu lệnh: `Worker1 = spawn(fun() -> prime_server:handle_worker_request(self()) end).`
-và chạy tiếp lệnh: `prime_server:handle_worker_response(Worker1, 17).`
+và chạy tiếp lệnh: `prime_server:handle_worker_response(Worker1, 7, 7).`
 
-![unnamed (3)](https://github.com/tailucanh/Primy_finding_a_large_prime/assets/93418649/ace5a08a-9986-4452-9bb5-0b5733bf8fd1)
+*Lưu ý: đối số 7 ở giữa trong câu lệnh có thể thay đổi tùy ý để kiểm tra số nguyên tố, và đối số 7 ở cuối  là một số nguyên tố bất kỳ để so sánh kết quả từ hàm fermat:fermat/1*
 
-*Lưu ý: đối số 17 trong câu lệnh có thể thay đổi tùy ý để kiểm tra số nguyên tố*
+![unnamed (3)](https://github.com/tailucanh/Primy_finding_a_large_prime/assets/93418649/e374ddc3-8318-409e-843d-1ce120e90008)
 
-
---> Kết quả trả về: New highest prime found: 17.
+--> Kết quả trả về: Prime 7 is prime. và New highest prime found: 7.
  ### *Chúng ta có thể kiểm tra thêm nhiều số nguyên tố hơn bằng cách lặp lại bước 1.4.*
