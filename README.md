@@ -17,15 +17,15 @@ Your task will be to implement a distributed system that will find large primes.
 
 ![unnamed](https://github.com/tailucanh/Primy_finding_a_large_prime/assets/93418649/77b7d300-1f04-414e-b5cf-541a4a40eb47)
 
-1.2, Trong Erlang, biên dịch mỗi tệp mã nguồn bằng lệnh `c(TEN_TEP).` Ví dụ trong code của chungs ta là:  `c(fermat).` và `c(prime_server).`
+1.2, Trong Erlang, biên dịch tệp mã nguồn server bằng lệnh `c(TEN_TEP).` Ví dụ trong code của chúng ta là:  `c(prime_server).`
 
-![unnamed (1)](https://github.com/tailucanh/Primy_finding_a_large_prime/assets/93418649/6511bee7-c027-4c7d-9ef5-035822975323)
+![unnamed (1)](https://github.com/tailucanh/Primy_finding_a_large_prime/assets/93418649/b0330672-1482-4f09-bb29-38ffd78b4809)
 
 như hình ảnh trên là đã thành công biên dịch mã nguồn.
 
 1.3, Bắt đầu máy chủ bằng cách gọi hàm `prime_server:start_server().` trong Erlang.
 
-![unnamed (2)](https://github.com/tailucanh/Primy_finding_a_large_prime/assets/93418649/b3933184-e704-442d-9c68-6bfaeb668c17)
+![unnamed (2)](https://github.com/tailucanh/Primy_finding_a_large_prime/assets/93418649/f1fd84fb-f04a-4200-9dae-909432f1b737)
 
 1.4, Bây giờ bạn có thể tạo các tiến trình công nhân giả lập. Hãy tạo một số công nhân và yêu cầu cho chúng để thực hiện kiểm tra số nguyên tố bằng câu lệnh: `Worker1 = spawn(fun() -> prime_server:handle_worker_request(self()) end).`
 và chạy tiếp lệnh: `prime_server:handle_worker_response(Worker1, 7, 7).`
