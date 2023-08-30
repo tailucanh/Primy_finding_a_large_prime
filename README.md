@@ -28,8 +28,7 @@ như hình ảnh trên là đã thành công biên dịch mã nguồn.
 ![unnamed (2)](https://github.com/tailucanh/Primy_finding_a_large_prime/assets/93418649/b3933184-e704-442d-9c68-6bfaeb668c17)
 
 1.4, Bây giờ bạn có thể tạo các tiến trình công nhân giả lập. Hãy tạo một số công nhân và yêu cầu cho chúng để thực hiện kiểm tra số nguyên tố bằng câu lệnh: `Worker1 = spawn(fun() -> prime_server:handle_worker_request(self()) end).`
-và chạy tiếp lệnh:
-`prime_server:handle_worker_response(Worker1, 17).`
+và chạy tiếp lệnh: `prime_server:handle_worker_response(Worker1, 17).`
 
 ![unnamed (3)](https://github.com/tailucanh/Primy_finding_a_large_prime/assets/93418649/ace5a08a-9986-4452-9bb5-0b5733bf8fd1)
 
