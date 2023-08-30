@@ -1,4 +1,4 @@
--module(fermat).
+
 -export([mpow/3, fermat/1, test/2]).
 
 mpow(N, 1, _) ->

@@ -1,5 +1,6 @@
 -module(prime_server).
--export([start_server/0, init/0, handle_worker_request/1, handle_worker_response/2]).
+-export([start_server/0, init/0, handle_worker_request/1, handle_worker_response/3]).
+-include("fermat.erl").
 
 start_server() ->
     register(prime_server, spawn(fun() -> init() end)).
@@ -13,7 +14,6 @@ loop(CurrentNumber, HighestPrime) ->
             WorkerPid ! {assign_number, CurrentNumber},
             loop(CurrentNumber + 1, HighestPrime);
         {worker_response, _WorkerPid, Prime} when Prime > HighestPrime ->
-            io:format("New highest prime found: ~p~n", [Prime]),
             loop(CurrentNumber + 1, Prime);
         {worker_response, _WorkerPid, _} ->
             loop(CurrentNumber + 1, HighestPrime)
@@ -21,9 +21,23 @@ loop(CurrentNumber, HighestPrime) ->
 
 
 handle_worker_request(WorkerPid) ->
-    prime_server ! {worker_request, WorkerPid}.
+    prime_server ! {worker_request, WorkerPid},
+    io:format("Assigned work to worker ~p~n", [WorkerPid]).
 
-
-handle_worker_response(WorkerPid, Prime) ->
-    prime_server ! {worker_response, WorkerPid, Prime}.
-
+handle_worker_response(WorkerPid, Prime, CheckPrime) ->
+    case fermat:fermat(Prime) of
+        true ->
+            io:format("Prime ~p is prime.~n", [Prime]);
+        false ->
+            io:format("Prime ~p is not prime.~n", [Prime])
+    end,
+    case Prime of
+        CheckPrime ->
+            io:format("Received prime ~p from worker ~p~n", [Prime, WorkerPid]),
+            prime_server ! {worker_response, WorkerPid, Prime},
+            io:format("New highest prime found: ~p~n", [Prime]),
+            {ok, Prime};
+        _ ->
+            prime_server ! {worker_response, WorkerPid, Prime},
+            {ok, Prime}
+    end.
