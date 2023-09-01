@@ -29,5 +29,7 @@ handle_worker_response(WorkerPid, Prime, CheckPrime) ->
                     {ok, Prime};
                 false -> {ok, Prime}
             end;
-        no -> io:format("Prime ~p is not prime.~n", [Prime]),{ok, Prime}
+        no -> 
+            io:format("Prime ~p is not prime.~n", [Prime]),
+            {ok, Prime}
     end.

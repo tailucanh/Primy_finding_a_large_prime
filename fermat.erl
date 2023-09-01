@@ -20,9 +20,8 @@ fermat(1) ->
 fermat(P) ->
     R = rand:uniform(P-1),
     T = mpow(R, P-1, P),
-    case T == 1 of
-        true -> ok;
-        _ -> no
+    if T == 1 -> ok;
+    true ->no
     end.
 
 %Tối ưu
